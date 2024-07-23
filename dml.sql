@@ -1,5 +1,3 @@
-USE bike_shop;
-
 INSERT INTO Country (CountryName) VALUES
 ('Colombia'),
 ('USA'),
@@ -11,10 +9,20 @@ INSERT INTO City (CityName, CountryID) VALUES
 ('New York', 2),
 ('Madrid', 3);
 
-INSERT INTO Bicycle (Model, Brand, Price, Stock) VALUES
-('Mountain Bike 1', 'BrandA', 500.00, 10),
-('Road Bike 2', 'BrandB', 750.00, 5),
-('Electric Bike 3', 'BrandC', 1000.00, 3);
+INSERT INTO Brand (BrandName) VALUES
+('BrandA'),
+('BrandB'),
+('BrandC');
+
+INSERT INTO Model (ModelName, BrandID) VALUES
+('Mountain Bike 1', 1),
+('Road Bike 2', 2),
+('Electric Bike 3', 3);
+
+INSERT INTO Bicycle (ModelID, Price, Stock) VALUES
+(1, 500.00, 10),
+(2, 750.00, 5),
+(3, 1000.00, 3);
 
 INSERT INTO Customer (ID, Name, Email, Phone, CityID) VALUES
 ('1098387298', 'John Doe', 'john@example.com', '123456789', 1),
@@ -26,8 +34,8 @@ INSERT INTO Sale (Date, CustomerID, Total) VALUES
 ('2024-07-02','1767365849', 1500.00);
 
 INSERT INTO SaleDetail (SaleID, BicycleID, Quantity, UnitPrice) VALUES
-(3, 1, 1, 500.00),
-(4, 2, 2, 750.00);
+(1, 1, 1, 500.00),
+(2, 2, 2, 750.00);
 
 INSERT INTO Supplier (ID, SupplierName, Contact, Phone, Email, CityID) VALUES
 (10001,'Supplier1', 'Contact1', '1122334455', 'supplier1@example.com', 1),
@@ -42,5 +50,5 @@ INSERT INTO Purchase (Date, SupplierID, Total) VALUES
 ('2024-07-02', 10002, 1500.00);
 
 INSERT INTO PurchaseDetail (PurchaseID, PartID, Quantity, UnitPrice) VALUES
-(1, 3, 10, 50.00),
-(2, 4, 15, 100.00);
+(1, 1, 10, 50.00),
+(2, 2, 15, 100.00);
