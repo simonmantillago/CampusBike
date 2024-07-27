@@ -18,11 +18,18 @@ CREATE TABLE Brand (
     BrandName VARCHAR(100) NOT NULL UNIQUE
 );
 
+CREATE TABLE Category (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    CategoryName VARCHAR(100) NOT NULL UNIQUE
+);
+
 CREATE TABLE Model (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     ModelName VARCHAR(100) NOT NULL,
     BrandID INT,
-    FOREIGN KEY (BrandID) REFERENCES Brand(ID)
+    CategoryID INT,  -- Changed from VARCHAR(100) to INT
+    FOREIGN KEY (BrandID) REFERENCES Brand(ID),
+    FOREIGN KEY (CategoryID) REFERENCES Category(ID)
 );
 
 CREATE TABLE Bicycle (
@@ -67,7 +74,7 @@ CREATE TABLE SaleDetail (
 );
 
 CREATE TABLE Supplier (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,  -- Changed to AUTO_INCREMENT
     SupplierName VARCHAR(100) NOT NULL,
     Contact VARCHAR(100),
     Phone VARCHAR(20),

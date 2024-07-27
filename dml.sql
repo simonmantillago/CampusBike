@@ -14,10 +14,15 @@ INSERT INTO Brand (BrandName) VALUES
 ('BrandB'),
 ('BrandC');
 
-INSERT INTO Model (ModelName, BrandID) VALUES
-('Mountain Bike 1', 1),
-('Road Bike 2', 2),
-('Electric Bike 3', 3);
+INSERT INTO category (CategoryName) VALUES
+('mountain'),
+('race'),
+('hybrid');
+
+INSERT INTO Model (ModelName, BrandID, CategoryID) VALUES
+('Mountain Bike new', 1, 1),
+('Road Bike new', 2, 2),
+('Electric Bike new', 3, 3);
 
 INSERT INTO Bicycle (ModelID, Price, Stock) VALUES
 (1, 500.00, 10),
